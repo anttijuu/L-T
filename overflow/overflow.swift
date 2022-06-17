@@ -8,6 +8,7 @@ func addWithUnsignedByte() {
 }
 
 func addWithSignedByte() {
+   // print("Nothing done here since compiler does now allow it.")
    print("Adding with signed bytes")
    let first: Int8 = 79
    let second: Int8 = 99
