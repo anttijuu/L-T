@@ -20,5 +20,14 @@ void addWithSignedByte() {
 int main() {
    addWithUnsignedByte();
    addWithSignedByte();
+
+   uint8_t number = 255;
+   printf("Number is: %d\n", number);
+   number++;
+   printf("Number after adding one: %d\n", number);
+   number = 0;
+   printf("Number is: %d\n", number);
+   number--;
+   printf("Number after deducting one: %d\n", number);
    return 0;
 }
