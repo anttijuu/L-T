@@ -1,10 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
+#include <stdbool.h>
+
 
 int max(int array[], int size);
 void printArray(int array[], int size);
 void printBits(size_t const size, void const * const ptr);
+
+bool showDetails = false; // Change to true to see details.
 
 int main(int argc, char * argv[]) {
    
@@ -16,13 +20,20 @@ int main(int argc, char * argv[]) {
    int result = 0;
    printf("First loop...\n");
    for (int number = 1; number <= maxValue; number++) {
+      if (showDetails) { printf("  "); printBits(sizeof(int), &result); }
+      if (showDetails) { printf("^ "); printBits(sizeof(int), &number); }
       result = result ^ number;
+      if (showDetails) { printf("> "); printBits(sizeof(int), &result); printf("----\n"); }
    }
    printf("Second loop...\n");
    for (int index = 0; index < arraySize; index++) {
+      if (showDetails) { printf("  "); printBits(sizeof(int), &result); }
+      if (showDetails) { printf("^ "); printBits(sizeof(int), &array[index]); }
       result = result ^ array[index];
+      if (showDetails) { printf("> "); printBits(sizeof(int), &result); printf("----\n"); }
    }
-   printf("Missing number: %d\n", result);
+   printf("Missing number: %d\nAnd in binary: \n", result);
+   printBits(sizeof(int), &result);
    return EXIT_SUCCESS;
 }
 

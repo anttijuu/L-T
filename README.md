@@ -1,26 +1,67 @@
-# Demos and samples
+# Demot ja esimerkit
 
-For a basic course on computers. 
+Nämä demot havainnollistavat eri asioita siitä miten tietokoneet toimivat, ohjelmoijan näkökulmasta.
 
-The demonstrations illustrate certain aspects of how computers work.
+## Sisältö
 
-Contents:
+* `asm-helloworld` -- yksinkertainen assembly -kielellä tehty hello world -sovellus macOS:lle.
+* `double-rounding` -- esimerkkejä tilanteista joissa liukulukujen pyöristys tai epätarkkuus aiheuttaa ongelmia. Esimerkkikielinä C, Java ja Swift.
+* `divbyzero` -- nollalla jakamisen virhe:
+  * `divbyzero.c` -- esimerkki C -kielellä, joka näyttää miten ohjelma kaatuu kun luku jaetaan nollalla.
+* `overflow` -- useita esimerkkejä siitä miten kokonaisluvun ylivuioto tapahtuu eri ohjelmintikielillä.
+  * `main.c` -- kokonaisluvun ylivuotoesimerkki C -kielellä.
+  * `main.swift` -- kuten yllä, mutta ohjelmointikielenä Swift. 
+  * `overflow.c` -- kahdeksanbittisten kokonaislukujen ylivuotoesimerkki C -kielellä.
+  * `overflow.swift` -- kahdeksanbittisten kokonaislukujen ylivuotoesimerkki Swift -kielellä.
+* `printformat` -- numeroarvon tulostaminen eri lukujärjestelmillä.
+  * `numbinary.c` -- pitkän kokonaisluvun tulostaminen bitteinä.
+  * `printformat.c` -- kokonaisluvun arvon tulostaminen eri lukujärjestelmän arvoina; merkki (char), etumerkitön kokonaisluku (unsigned), heksadesimaaliluku,...
+* `shifting` -- esimerkkejä kokonaislukujen bittien liikuttelusta (bit shifting).
+  * `shifting.c` -- yksinkertainen esimerkki bit shiftingistä.
+  * `even-shift.c` -- esimerkki näyttää miten jakolaskuja ja kertolaskuja parillisilla numeroilla voidaan toteuttaa bittien liikuttelulla.
+* `fun` -- hauskoja demoja :)
+  * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujnien arvoissa -- jopa emojeita!
+  * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
+  * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
 
-* `asm-helloworld` -- a simple hello world app in assembly on macOS.
-* `double-rounding` -- examples in C of situations where rounding errors of floating point numbers cause problems. Languages include C, Java and Swift.
-* `divbyzero` -- division by zero error:
-  * `divbyzero.c` -- C example, shows how app crashes if number is divided by zero.
-* `overflow` -- several examples of overflow happening with integers in different languages.
-  * `main.c` -- shows how integer overflow happens with C language.
-  * `main.swift` -- the same as above but with Swift programming language. 
-  * `overflow.c` -- overflow with eight byte numbers in C.
-  * `overflow.swift` -- overflow with eight byte numbers in Swift.
-* `printformat` -- printing out numbers in different formats.
-  * `numbinary.c` -- printing out long integers as bits.
-  * `printformat.c` -- printint out an integer in different formats, char, unsigned, hex,...
-* `shifting` -- examples of bit shifting operations on integers.
-  * `shifting.c` -- a simple example of bit shifting.
-  * `even-shift.c` -- shows how division and multiplication with even numbers can be done with bit shifting.
-* `fun` -- fun examples :)
-  * `spooky.swift` -- an example on how modern programming languages allow using almost any symbols in variable and function names, as well as values -- even emojis!
-  * `x-or-fun
+## Kääntäminen ja suorittaminen
+
+Kurssilla **koodiesimerkkien tutkiminen lähdekoodina riittää**. Demot esitellään kurssin opetustapahtumissa. 
+
+Jos haluat itse kokeilla kääntämistä ja suorittamista, alla siihen ohjeet.
+
+Koodiesimerkkien ja demojen suorittaminen edellyttää että koneelle on asennettu kyseisen kielen työkalut:
+
+* C: joko GCC tai clang -kääntäjä: esim https://gcc.gnu.org
+* Java: Java Development Kit (JDK): https://jdk.java.net/18/
+* Swift: Swift -kääntäjä: macOS: asenna Xcode, muut: https://www.swift.org/download/
+
+Yleensä eri ohjelmistokehitystyökalujen asentaminen joko asentaa kääntäjän tai tarjoaa helpon tavan asentaa kääntäjiä eri kielille. Kysy lisää opettajilta jos tarpeen.
+
+### C -kielisen ohjelman kääntäminen komentoriviltä:
+
+```console
+gcc tiedosto.c -o ohjelma
+```
+
+Sen jälkeen suorita "ohjelma" -niminen tiedosto koneellasi.
+
+### Java -kielisen ohjelman kääntäminen komentoriviltä:
+
+```console
+javac Tiedosto.java
+```
+Ja suorita ohjelma:
+
+```console
+Java Tiedosto
+```
+
+### Swift -kielisen ohjelman kääntäminen komentoriviltä:
+
+```console
+swiftc tiedosto.swift -o ohjelma
+```
+
+Sen jälkeen suorita "ohjelma" -niminen tiedosto koneellasi.
+
