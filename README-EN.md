@@ -54,7 +54,7 @@ javac File.java
 And execute it:
 
 ```console
-Java File
+java File
 ```
 
 ### Compiling a Swift program from the terminal:

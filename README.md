@@ -54,7 +54,7 @@ javac Tiedosto.java
 Ja suorita ohjelma:
 
 ```console
-Java Tiedosto
+java Tiedosto
 ```
 
 ### Swift -kielisen ohjelman kääntäminen komentoriviltä:
