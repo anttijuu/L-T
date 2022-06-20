@@ -2,6 +2,8 @@
 
 The demonstrations illustrate certain aspects of how computers work, from the programmer's viewpoint.
 
+These are used in a basic course on computers. In the course **it is enought to study the source code**. Demos will be presented in the course teaching events. 
+
 Contents:
 
 * `asm-helloworld` -- a simple hello world app in assembly on macOS.
@@ -26,8 +28,6 @@ Contents:
 
 ## Compiling and executing
 
-In this course **it is enought to study the source code**. Demos will be presented in the course teaching events. 
-
 If you wish to try out compiling and executing the demos yourself, instructions can be found below.
 
 Compiling and running the demos require that you install the necessary compilers etc. for the languages:
@@ -45,6 +45,8 @@ gcc file.c -o app
 ```
 
 After which, execute the "app" file from the terminal.
+
+Alternatively, you may use the clang compiler. In this case, just replace the command `gcc` with the command `clang`. 
 
 ### Compiling a Java program from the terminal:
 

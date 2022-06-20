@@ -2,6 +2,8 @@
 
 Nämä demot havainnollistavat eri asioita siitä miten tietokoneet toimivat, ohjelmoijan näkökulmasta.
 
+Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien tutkiminen lähdekoodina riittää**. Demot esitellään kurssin opetustapahtumissa. 
+
 ## Sisältö
 
 * `asm-helloworld` -- yksinkertainen assembly -kielellä tehty hello world -sovellus macOS:lle.
@@ -26,8 +28,6 @@ Nämä demot havainnollistavat eri asioita siitä miten tietokoneet toimivat, oh
 
 ## Kääntäminen ja suorittaminen
 
-Kurssilla **koodiesimerkkien tutkiminen lähdekoodina riittää**. Demot esitellään kurssin opetustapahtumissa. 
-
 Jos haluat itse kokeilla kääntämistä ja suorittamista, alla siihen ohjeet.
 
 Koodiesimerkkien ja demojen suorittaminen edellyttää että koneelle on asennettu kyseisen kielen työkalut:
@@ -45,6 +45,8 @@ gcc tiedosto.c -o ohjelma
 ```
 
 Sen jälkeen suorita "ohjelma" -niminen tiedosto koneellasi.
+
+Valinnaisesti käytä clang -kääntäjää, korvaa tälloin komento `gcc` komennolla `clang`.
 
 ### Java -kielisen ohjelman kääntäminen komentoriviltä:
 
