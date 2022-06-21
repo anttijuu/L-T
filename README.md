@@ -22,7 +22,7 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
   * `shifting.c` -- yksinkertainen esimerkki bit shiftingistä.
   * `even-shift.c` -- esimerkki näyttää miten jakolaskuja ja kertolaskuja parillisilla numeroilla voidaan toteuttaa bittien liikuttelulla.
 * `fun` -- hauskoja demoja :)
-  * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujnien arvoissa -- jopa emojeita!
+  * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujien arvoissa -- jopa emojeita!
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
 
