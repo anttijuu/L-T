@@ -23,7 +23,7 @@ Contents:
   * `even-shift.c` -- shows how division and multiplication with even numbers can be done with bit shifting.
 * `fun` -- fun examples :)
   * `spooky.swift` -- an example on how modern programming languages allow using almost any Unicode symbols in variable and function names, as well as values -- even emojis!
-  * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related array; how to find a missing number in a series of numbers.
+  * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
 
 ## Compiling and executing
