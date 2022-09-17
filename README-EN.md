@@ -2,6 +2,8 @@
 
 The demonstrations illustrate certain aspects of how computers work, from the programmer's viewpoint.
 
+These are used in a basic course on computers. In the course **it is enought to study the source code**. Demos will be presented in the course teaching events. 
+
 Contents:
 
 * `asm-helloworld` -- a simple hello world app in assembly on macOS.
@@ -21,12 +23,10 @@ Contents:
   * `even-shift.c` -- shows how division and multiplication with even numbers can be done with bit shifting.
 * `fun` -- fun examples :)
   * `spooky.swift` -- an example on how modern programming languages allow using almost any Unicode symbols in variable and function names, as well as values -- even emojis!
-  * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related array; how to find a missing number in a series of numbers.
+  * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
 
 ## Compiling and executing
-
-In this course **it is enought to study the source code**. Demos will be presented in the course teaching events. 
 
 If you wish to try out compiling and executing the demos yourself, instructions can be found below.
 
@@ -46,6 +46,8 @@ gcc file.c -o app
 
 After which, execute the "app" file from the terminal.
 
+Alternatively, you may use the clang compiler. In this case, just replace the command `gcc` with the command `clang`. 
+
 ### Compiling a Java program from the terminal:
 
 ```console
@@ -54,7 +56,7 @@ javac File.java
 And execute it:
 
 ```console
-Java File
+java File
 ```
 
 ### Compiling a Swift program from the terminal:

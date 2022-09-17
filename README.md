@@ -2,6 +2,8 @@
 
 Nämä demot havainnollistavat eri asioita siitä miten tietokoneet toimivat, ohjelmoijan näkökulmasta.
 
+Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien tutkiminen lähdekoodina riittää**. Demot esitellään kurssin opetustapahtumissa. 
+
 ## Sisältö
 
 * `asm-helloworld` -- yksinkertainen assembly -kielellä tehty hello world -sovellus macOS:lle.
@@ -20,13 +22,11 @@ Nämä demot havainnollistavat eri asioita siitä miten tietokoneet toimivat, oh
   * `shifting.c` -- yksinkertainen esimerkki bit shiftingistä.
   * `even-shift.c` -- esimerkki näyttää miten jakolaskuja ja kertolaskuja parillisilla numeroilla voidaan toteuttaa bittien liikuttelulla.
 * `fun` -- hauskoja demoja :)
-  * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujnien arvoissa -- jopa emojeita!
+  * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujien arvoissa -- jopa emojeita!
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
 
 ## Kääntäminen ja suorittaminen
-
-Kurssilla **koodiesimerkkien tutkiminen lähdekoodina riittää**. Demot esitellään kurssin opetustapahtumissa. 
 
 Jos haluat itse kokeilla kääntämistä ja suorittamista, alla siihen ohjeet.
 
@@ -46,6 +46,8 @@ gcc tiedosto.c -o ohjelma
 
 Sen jälkeen suorita "ohjelma" -niminen tiedosto koneellasi.
 
+Valinnaisesti käytä clang -kääntäjää, korvaa tälloin komento `gcc` komennolla `clang`.
+
 ### Java -kielisen ohjelman kääntäminen komentoriviltä:
 
 ```console
@@ -54,7 +56,7 @@ javac Tiedosto.java
 Ja suorita ohjelma:
 
 ```console
-Java Tiedosto
+java Tiedosto
 ```
 
 ### Swift -kielisen ohjelman kääntäminen komentoriviltä:
