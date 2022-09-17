@@ -1,0 +1,88 @@
+Printing out truth tables for operators...
+Truth table for AND
+	x	y	?
+	--------------------
+	0	0	0
+	1	0	0
+	0	1	0
+	1	1	1
+Truth table for NAND
+	x	y	?
+	--------------------
+	0	0	1
+	1	0	1
+	0	1	1
+	1	1	0
+Truth table for OR
+	x	y	?
+	--------------------
+	0	0	0
+	1	0	1
+	0	1	1
+	1	1	1
+Truth table for NOR
+	x	y	?
+	--------------------
+	0	0	1
+	1	0	0
+	0	1	0
+	1	1	0
+Truth table for XOR
+	x	y	?
+	--------------------
+	0	0	0
+	1	0	1
+	0	1	1
+	1	1	0
+
+---------------------------------------------
+
+Testing isZero chip...
+00000000
+Is the byte above a zero integer?: Yes
+
+01000001
+Is the byte above a zero integer?: No
+
+
+---------------------------------------------
+
+Testing isEven chip...
+00000000
+Is the byte an even integer?: Yes
+
+01000001
+Is the byte above an even integer?: No
+
+
+---------------------------------------------
+Considering a byte as UNSIGNED now...
+
+Testing if a byte is larger than zero int and even or not...
+00000000
+Is the byte above larger than 0 and even?: No
+
+01000001
+Is the byte above larger than 0 and even?: No
+
+11000000
+Is the byte above larger than 0 and even?: Yes
+
+
+---------------------------------------------
+
+Considering a byte as SIGNED now...
+
+Testing if a byte is larger than zero int and even or not...
+00000000
+Is the byte above larger than 0 and even?: No
+
+11000001
+Is the byte above larger than 0 and even?: No
+
+11000000
+Is the byte above larger than 0 and even?: No
+
+01000000
+Is the byte above larger than 0 and even?: Yes
+
