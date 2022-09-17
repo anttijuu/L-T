@@ -1,15 +1,19 @@
 /**
  Tämä tiedosto toteuttaa Laitteet ja tietoverkot -kurssin Harjoituksen 3 portit C -kielellä.
- Toteutus noudattaa malliratkaisua josta löytyy demovideo.
+ Toteutus noudattaa malliratkaisua josta löytyy demovideo Moodlessa.
+ Harjoituksessa on tavoitteena toteuttaa portteja (gate) lähtökohtana AND ja NOT -portit.
 
  This file implements the Devices and data networks course Exercise 3 gates in C language.
- The implementation follows the sample solution video demonstration.
+ The implementation follows the sample solution video demonstration in Moodle.
+ The goal of the exercise is to implement various ports starting from AND and NOT gates.
 
  Compile on *nix machines:
  > gcc gates.c -o gates
 
  Compile on Windows:
  > gcc gates.c -o gates.exe
+
+ Or use clang instead of gcc if you prefer.
  */
 
 #include <stdio.h>
@@ -129,7 +133,7 @@ bool and(bool x, bool y) {
 	return x && y;
 }
 
-/// Returns the x reversed, the job of the NOT gate.
+/// Returns the x toggled,, the job of the NOT gate.
 bool not(bool x) {
 	return !x;
 }
@@ -142,9 +146,9 @@ bool nand(bool x, bool y) {
 /// Implements the OR gate using three NAND gates.
 bool or(bool x, bool y) {
 	/* Visualization:
-	 x 		nand1(x,x)
+	 x 		nand1(x,x) --\
 							nand3(nand1, nand2)
-	 y 		nand2(y,y)
+	 y 		nand2(y,y) --/
 	 */
 	return nand(nand(x, x), nand(y, y));
 	//      ^nand3 ˆnand1      ^nand2
@@ -158,9 +162,11 @@ bool nor(bool x, bool y) {
 /// Implements the XOR using four NAND gates.
 bool xor(bool x, bool y) {
 	/* Visualization:
-	x					nand2(x,nand1)
-		nand1(x,y)						nand4(nand2, nand3)
-	y 					nand3(y,nand1)
+	x \            nand2(x,nand1)
+       \        /               \
+		nand1(x,y)					 nand4(nand2, nand3)
+	   /         \               /
+	y /           nand3(y,nand1)
 	 */
 	return nand(nand(x, nand(x, y)), nand(y, nand(x,y)));
 	//     ^nand4 ˆnand2   ^nand1       ^nand3    ^nand1
