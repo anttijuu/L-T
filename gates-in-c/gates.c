@@ -1,23 +1,15 @@
-/**
- Tämä tiedosto toteuttaa Laitteet ja tietoverkot -kurssin Harjoituksen 3 portit C -kielellä.
- Toteutus noudattaa malliratkaisua josta löytyy demovideo Moodlessa.
- Harjoituksessa on tavoitteena toteuttaa portteja (gate) lähtökohtana AND ja NOT -portit.
-
- This file implements the Devices and data networks course Exercise 3 gates in C language.
- The implementation follows the sample solution video demonstration in Moodle.
- The goal of the exercise is to implement various ports starting from AND and NOT gates.
-
- Compile on *nix machines:
- > gcc gates.c -o gates
-
- Compile on Windows:
- > gcc gates.c -o gates.exe
-
- Or use clang instead of gcc if you prefer.
- */
-
 #include <stdio.h>
 #include <stdbool.h>
+
+// Include all the gates
+#include "and.h"
+#include "not.h"
+#include "nand.h"
+#include "or.h"
+#include "nor.h"
+#include "xor.h"
+#include "iseven.h"
+#include "iszero.h"
 
 /// Enumerate different basic logical operations.
 typedef enum operationType {
@@ -29,23 +21,6 @@ typedef enum operationType {
 	XOR
 } Operation;
 
-/// Forward declarations for operators and other functions needed.
-/// The two gates available in Digital Logic Sim when you create a new project:
-bool and(bool x, bool y);
-bool not(bool x);
-/// The first port to create, NAND:
-bool nand(bool x, bool y);
-/// OR port created by using three NAND gates:
-bool or(bool x, bool y);
-/// NOR port created using OR and NOT:
-bool nor(bool x, bool y);
-/// XOR gate created using four NAND gates:
-bool xor(bool x, bool y);
-
-/// Gate or chip checking if a byte is zero integer or not.
-bool isZero(bool array[]);
-/// Gate or chip checking if a byte is even integer or not.
-bool isEven(bool array[]);
 /// Final task in the exercise is to check if a byte is larger than
 /// zero and even. This has two solutions, depending if you consider
 /// the byte to be signed or unsigned. This first is for unsigned bytes.
@@ -128,82 +103,6 @@ int main() {
 	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
 }
 
-/// Returns true if both inputs are true, as AND gate does.
-bool and(bool x, bool y) {
-	return x && y;
-}
-
-/// Returns the x toggled,, the job of the NOT gate.
-bool not(bool x) {
-	return !x;
-}
-
-/// Implements the NAND gate using AND and NOT.
-bool nand(bool x, bool y) {
-	return not(and(x, y));
-}
-
-/// Implements the OR gate using three NAND gates.
-bool or(bool x, bool y) {
-	/* Visualization:
-	 x 		nand1(x,x) --\
-							nand3(nand1, nand2)
-	 y 		nand2(y,y) --/
-	 */
-	return nand(nand(x, x), nand(y, y));
-	//      ^nand3 ˆnand1      ^nand2
-}
-
-/// Implements NOR gate using OR and NOT.
-bool nor(bool x, bool y) {
-	return not(or(x,y));
-}
-
-/// Implements the XOR using four NAND gates.
-bool xor(bool x, bool y) {
-	/* Visualization:
-	x \            nand2(x,nand1)
-       \        /               \
-		nand1(x,y)					 nand4(nand2, nand3)
-	   /         \               /
-	y /           nand3(y,nand1)
-	 */
-	return nand(nand(x, nand(x, y)), nand(y, nand(x,y)));
-	//     ^nand4 ˆnand2   ^nand1       ^nand3    ^nand1
-}
-
-/// Implements isZero chip by OR'ing each input, combining
-/// each to another OR and finally using NOT. Since without
-/// NOT, this chip would say if the byte is not zero and we
-/// want the opposite.
-bool isZero(bool array[]) {
-	// This layout for the code may help in seeing the structure better.
-	return not(or(									// OR the result of OR'ing the two nibbles, done below.
-					  or(								// OR the result of two OR's below, the left side nibble.
-						  or(
-							  array[0], array[1] // OR first two bits
-							  ),
-						  or(
-							  array[2], array[3] // OR 3rd and 4th bits from the left
-							  )
-						  ),
-					  or(								// OR the result of two OR's below, right side nibble.
-						  or(
-							  array[4], array[5] // OR 5th and 6th bits from the left
-							  ),
-						  or(
-							  array[6], array[7] // OR 7th and 8th bits from the left
-							  )
-						  )
-					  )
-				  );
-}
-
-/// This chip checks if the least significant bit on the right side
-/// is zero -- then the number is even.
-bool isEven(bool array[]) {
-	return nand(array[7], array[7]);
-}
 
 /// This chip checks if an UNSIGNED byte is larger than zero and even integer.
 /// In unsigned bytes, the most significant bit value of 1 does *not* mean number is negative.
