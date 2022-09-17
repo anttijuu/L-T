@@ -25,7 +25,7 @@ Contents:
   * `spooky.swift` -- an example on how modern programming languages allow using almost any Unicode symbols in variable and function names, as well as values -- even emojis!
   * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
-  * `gates-in-c` -- demonstrates how to implement gates programmatically, related to Exercise 3.
+* `gates-in-c` -- demonstrates how to implement gates programmatically, related to Exercise 3.
 
 ## Compiling and executing
 

@@ -25,7 +25,7 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
   * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujien arvoissa -- jopa emojeita!
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
-  * `gates-in-c` -- demonstroi porttien (gate) toteutusta ohjelmallisesti, liittyen harjoitukseen 3.
+* `gates-in-c` -- demonstroi porttien (gate) toteutusta ohjelmallisesti, liittyen harjoitukseen 3.
 
 ## Kääntäminen ja suorittaminen
 
