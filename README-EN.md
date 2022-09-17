@@ -25,6 +25,7 @@ Contents:
   * `spooky.swift` -- an example on how modern programming languages allow using almost any Unicode symbols in variable and function names, as well as values -- even emojis!
   * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
+  * `gates-in-c` -- demonstrates how to implement gates programmatically, related to Exercise 3.
 
 ## Compiling and executing
 
@@ -39,6 +40,8 @@ Compiling and running the demos require that you install the necessary compilers
 Usually installing any software development kit installs or provides easy ways to install compilers. Ask more from teachers if needed.
 
 ### Compiling a C program from the terminal:
+
+If you are on Windows, the program binary name is typically e.g. `app.exe`, so add the .exe to the command below.
 
 ```console
 gcc file.c -o app

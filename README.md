@@ -25,6 +25,7 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
   * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujien arvoissa -- jopa emojeita!
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
+  * `gates-in-c` -- demonstroi porttien (gate) toteutusta ohjelmallisesti, liittyen harjoitukseen 3.
 
 ## Kääntäminen ja suorittaminen
 
@@ -39,6 +40,8 @@ Koodiesimerkkien ja demojen suorittaminen edellyttää että koneelle on asennet
 Yleensä eri ohjelmistokehitystyökalujen asentaminen joko asentaa kääntäjän tai tarjoaa helpon tavan asentaa kääntäjiä eri kielille. Kysy lisää opettajilta jos tarpeen.
 
 ### C -kielisen ohjelman kääntäminen komentoriviltä:
+
+Windowsissa ohjelmatiedostojen nimi on tyypillisesti esim. `ohjelma.exe`, joten muuta ao komentoa jos käytät Windowsia.
 
 ```console
 gcc tiedosto.c -o ohjelma
