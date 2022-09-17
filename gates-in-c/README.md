@@ -13,13 +13,21 @@ This file implements the Devices and data networks course Exercise 3 gates in C 
 ## Kääntäminen / Building 
 
 Compile on *nix machines:
+
+```console
 > gcc *.c -o gates
+```
 
 Compile on Windows:
+
+```console
 > gcc *.c -o gates.exe
+```
 
 Or use clang instead of gcc if you prefer.
 
 Then execute the binary to see the results. 
 
 A sample output is included in `gates-output.txt`.
+
+(c) Antti Juustila, 2022.
