@@ -60,9 +60,11 @@ int main() {
 	printf("\nTesting isEven chip...\n");
 	printBooleanArrayAsBits(zeroByte);
 	zeroByte[3] = true;
+	// Now zeroByte is temporarily 0b00010000 and still even integer.
 	printf("\nTesting isEven chip...\n");
 	printBooleanArrayAsBits(zeroByte);
 	zeroByte[3] = false;
+	// Now zeroByte is back to zero 0b00000000
 	printf("Is the byte an even integer?: %s\n\n", isEven(zeroByte) ? "Yes" : "No");
 	printBooleanArrayAsBits(nonZeroByte);
 	printf("Is the byte above an even integer?: %s\n\n", isEven(nonZeroByte) ? "Yes" : "No");
