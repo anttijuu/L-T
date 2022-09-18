@@ -120,9 +120,10 @@ void printTruthTable(Operation op) {
 			funcPtr = &and;
 			break;
 		case NOT:
-			// DO not set the function pointer,
-			// easier to handle one parameter not
-			// here than below.
+			// Leave the function pointer to NULL,
+			// easier to handle one parameter NOT
+			// function here than below where 2 params
+			// are required.
 			printf("Truth table for NOT:\n");
 			printf("\tx\t?\n");
 			printf("\t------------\n");
@@ -148,7 +149,7 @@ void printTruthTable(Operation op) {
 		default:
 			break;
 	}
-	// Did we manage to select a function to call?
+	// Did we manage to select a function to call (NOT handled above)?
 	if (funcPtr != NULL) {
 		printf("\tx\ty\t?\n");
 		printf("\t--------------------\n");
@@ -157,7 +158,7 @@ void printTruthTable(Operation op) {
 		printf("\t0\t1\t%d\n", (*funcPtr)(false, true) ? 1 : 0);
 		printf("\t1\t1\t%d\n", (*funcPtr)(true, true) ? 1 : 0);
 	} else {
-		printf("ERROR, operator not supported\n");
+		printf("ERROR, Boolean operator not supported\n");
 	}
 }
 
