@@ -24,8 +24,6 @@ typedef enum operationType {
 } Operation;
 
 /// Input and output.
-/// NOT truth table needs no arguments, has only one input.
-void printNotTruthTable();
 /// Print truth tables for basic operators having two inputs.
 void printTruthTable(Operation op);
 void printBooleanArrayAsBits(bool byte[]);
@@ -35,7 +33,7 @@ void printBooleanArrayAsBits(bool byte[]);
 int main() {
 	printf("Printing out truth tables for operators...\n");
 	printTruthTable(AND);
-	printNotTruthTable();
+	printTruthTable(NOT);
 	printTruthTable(NAND);
 	printTruthTable(OR);
 	printTruthTable(NOR);
@@ -111,14 +109,6 @@ int main() {
 // Output functions. //
 // ==================//
 
-void printNotTruthTable() {
-	printf("Truth table for NOT:\n");
-	printf("\tx\t?\n");
-	printf("\t------------\n");
-	printf("\t0\t%d\n", not(false) ? 1 : 0);
-	printf("\t1\t%d\n", not(true) ? 1 : 0);
-}
-
 /// Prints out a truth table for a specific Boolean operation.
 void printTruthTable(Operation op) {
 	// Implementation uses a function pointer to select the
@@ -128,6 +118,16 @@ void printTruthTable(Operation op) {
 		case AND:
 			printf("Truth table for AND:\n");
 			funcPtr = &and;
+			break;
+		case NOT:
+			// DO not set the function pointer,
+			// easier to handle one parameter not
+			// here than below.
+			printf("Truth table for NOT:\n");
+			printf("\tx\t?\n");
+			printf("\t------------\n");
+			printf("\t0\t%d\n", not(false) ? 1 : 0);
+			printf("\t1\t%d\n", not(true) ? 1 : 0);
 			break;
 		case NAND:
 			printf("Truth table for NAND:\n");
