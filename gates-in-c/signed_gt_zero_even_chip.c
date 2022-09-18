@@ -17,7 +17,7 @@
 /// and zero if the number is positive. We use NAND to check the most significant bit.
 /// In the demo video showing the solution, I used AND and NOT gates, but NAND can be used
 /// to replace those as you can see in the code below.
-bool isSignedByteLargerThanZeroAndEven(bool array[]) {
-	return and(nand(array[0], array[0]), and(not(isZero(array)), isEven(array)));
+bool isSignedByteLargerThanZeroAndEven(bool byte[]) {
+	return and(nand(byte[0], byte[0]), and(not(isZero(byte)), isEven(byte)));
 }
 

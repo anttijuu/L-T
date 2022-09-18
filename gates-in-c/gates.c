@@ -24,15 +24,18 @@ typedef enum operationType {
 } Operation;
 
 /// Input and output.
+/// NOT truth table needs no arguments, has only one input.
+void printNotTruthTable();
 /// Print truth tables for basic operators having two inputs.
 void printTruthTable(Operation op);
-void printBooleanArrayAsBits(bool array[]);
+void printBooleanArrayAsBits(bool byte[]);
 
 /// main function demonstrates the logical operators and "chips" implemented
 /// using the logical operators, following the course exercise 3.
 int main() {
 	printf("Printing out truth tables for operators...\n");
 	printTruthTable(AND);
+	printNotTruthTable();
 	printTruthTable(NAND);
 	printTruthTable(OR);
 	printTruthTable(NOR);
@@ -41,24 +44,28 @@ int main() {
 	printf("\n---------------------------------------------\n");
 
 	// Eight bit arrays as truth values.
-	bool zeroArray[] =    {false, false, false, false, false, false, false, false}; // 00000000, 0x00, 0
-	bool nonZeroArray[] = {false, true, false,  false, false, false, false, true};  // 01000001, 0x41, 65
+	bool zeroByte[] =    {false, false, false, false, false, false, false, false}; // 00000000, 0x00, 0
+	bool nonZeroByte[] = {false, true, false,  false, false, false, false, true};  // 01000001, 0x41, 65
 
 	// Testing isZero chip.
 	printf("\nTesting isZero chip...\n");
-	printBooleanArrayAsBits(zeroArray);
-	printf("Is the byte above a zero integer?: %s\n\n", isZero(zeroArray) ? "Yes" : "No");
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above a zero integer?: %s\n\n", isZero(nonZeroArray) ? "Yes" : "No");
+	printBooleanArrayAsBits(zeroByte);
+	printf("Is the byte above a zero integer?: %s\n\n", isZero(zeroByte) ? "Yes" : "No");
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above a zero integer?: %s\n\n", isZero(nonZeroByte) ? "Yes" : "No");
 
 	printf("\n---------------------------------------------\n");
 
 	// Testing isEven chip.
 	printf("\nTesting isEven chip...\n");
-	printBooleanArrayAsBits(zeroArray);
-	printf("Is the byte an even integer?: %s\n\n", isEven(zeroArray) ? "Yes" : "No");
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above an even integer?: %s\n\n", isEven(nonZeroArray) ? "Yes" : "No");
+	printBooleanArrayAsBits(zeroByte);
+	zeroByte[3] = true;
+	printf("\nTesting isEven chip...\n");
+	printBooleanArrayAsBits(zeroByte);
+	zeroByte[3] = false;
+	printf("Is the byte an even integer?: %s\n\n", isEven(zeroByte) ? "Yes" : "No");
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above an even integer?: %s\n\n", isEven(nonZeroByte) ? "Yes" : "No");
 
 	printf("\n---------------------------------------------\n");
 
@@ -66,15 +73,15 @@ int main() {
 	// be unsigned or signed. Let's start with unsigned chip...
 	printf("Considering a byte as UNSIGNED now...\n");
 	printf("\nTesting if a byte is larger than zero int and even or not...\n");
-	printBooleanArrayAsBits(zeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(zeroArray) ? "Yes" : "No");
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
-	nonZeroArray[0] = true;
-	nonZeroArray[7] = false;
-	// Now bits in nonZeroArray are: 11000000
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
+	printBooleanArrayAsBits(zeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(zeroByte) ? "Yes" : "No");
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(nonZeroByte) ? "Yes" : "No");
+	nonZeroByte[0] = true;
+	nonZeroByte[7] = false;
+	// Now bits in nonZeroByte are: 11000000
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isUnsignedByteLargerThanZeroAndEven(nonZeroByte) ? "Yes" : "No");
 
 	printf("\n---------------------------------------------\n");
 
@@ -82,25 +89,33 @@ int main() {
 	// be unsigned or signed. Here we test the signed chip...
 	printf("\nConsidering a byte as SIGNED now...\n");
 	printf("\nTesting if a byte is larger than zero int and even or not...\n");
-	printBooleanArrayAsBits(zeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(zeroArray) ? "Yes" : "No");
-	nonZeroArray[7] = true;
-	// Now bits in nonZeroArray are: 11000001
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
-	nonZeroArray[7] = false;
-	// Now bits in nonZeroArray are: 11000000
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
-	nonZeroArray[0] = false;
-	// Now bits in nonZeroArray are: 01000000
-	printBooleanArrayAsBits(nonZeroArray);
-	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
+	printBooleanArrayAsBits(zeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(zeroByte) ? "Yes" : "No");
+	nonZeroByte[7] = true;
+	// Now bits in nonZeroByte are: 11000001
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroByte) ? "Yes" : "No");
+	nonZeroByte[7] = false;
+	// Now bits in nonZeroByte are: 11000000
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroByte) ? "Yes" : "No");
+	nonZeroByte[0] = false;
+	// Now bits in nonZeroByte are: 01000000
+	printBooleanArrayAsBits(nonZeroByte);
+	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroByte) ? "Yes" : "No");
 }
 
 // ==================//
 // Output functions. //
 // ==================//
+
+void printNotTruthTable() {
+	printf("Truth table for NOT:\n");
+	printf("\tx\t?\n");
+	printf("\t------------\n");
+	printf("\t0\t%d\n", not(false) ? 1 : 0);
+	printf("\t1\t%d\n", not(true) ? 1 : 0);
+}
 
 /// Prints out a truth table for a specific Boolean operation.
 void printTruthTable(Operation op) {
@@ -109,23 +124,23 @@ void printTruthTable(Operation op) {
 	bool (*funcPtr)(bool, bool) = NULL;
 	switch (op) {
 		case AND:
-			printf("Truth table for AND\n");
+			printf("Truth table for AND:\n");
 			funcPtr = &and;
 			break;
 		case NAND:
-			printf("Truth table for NAND\n");
+			printf("Truth table for NAND:\n");
 			funcPtr = &nand;
 			break;
 		case OR:
-			printf("Truth table for OR\n");
+			printf("Truth table for OR:\n");
 			funcPtr = &or;
 			break;
 		case NOR:
-			printf("Truth table for NOR\n");
+			printf("Truth table for NOR:\n");
 			funcPtr = &nor;
 			break;
 		case XOR:
-			printf("Truth table for XOR\n");
+			printf("Truth table for XOR:\n");
 			funcPtr = &xor;
 			break;
 		default:
@@ -146,9 +161,9 @@ void printTruthTable(Operation op) {
 
 /// Prints a boolean array of size 8 as bits.
 /// - Parameter array: An array with 8 boolean values.
-void printBooleanArrayAsBits(bool array[]) {
+void printBooleanArrayAsBits(bool byte[]) {
 	for (int i = 0; i < 8; i++) {
-		printf("%d", array[i] ? 1 : 0);
+		printf("%d", byte[i] ? 1 : 0);
 	}
 	printf("\n");
 }

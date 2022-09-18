@@ -3,7 +3,7 @@
 
 /// This chip checks if the least significant bit on the right side
 /// is zero -- then the number is even.
-bool isEven(bool array[]) {
+bool isEven(bool byte[]) {
 	// Can use either nor or nand.
-	return nor(array[7], array[7]);
+	return nor(byte[7], byte[7]);
 }

@@ -6,4 +6,4 @@
 /// zero and even. This has two solutions, depending if you consider
 /// the byte to be signed or unsigned. This first is for signed bytes.
 
-bool isSignedByteLargerThanZeroAndEven(bool array[]);
+bool isSignedByteLargerThanZeroAndEven(bool byte[]);

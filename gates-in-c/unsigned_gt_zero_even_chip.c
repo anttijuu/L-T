@@ -13,6 +13,6 @@
 
 /// This chip checks if an UNSIGNED byte is larger than zero and even integer.
 /// In unsigned bytes, the most significant bit value of 1 does *not* mean number is negative.
-bool isUnsignedByteLargerThanZeroAndEven(bool array[]) {
-	return and(not(isZero(array)), isEven(array));
+bool isUnsignedByteLargerThanZeroAndEven(bool byte[]) {
+	return and(not(isZero(byte)), isEven(byte));
 }
