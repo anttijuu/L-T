@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Include all the gates
+// Include all the gates / chips
 #include "and.h"
 #include "not.h"
 #include "nand.h"
@@ -10,6 +10,8 @@
 #include "xor.h"
 #include "iseven.h"
 #include "iszero.h"
+#include "unsigned_gt_zero_even_chip.h"
+#include "signed_gt_zero_even_chip.h"
 
 /// Enumerate different basic logical operations.
 typedef enum operationType {
@@ -20,13 +22,6 @@ typedef enum operationType {
 	NOR,
 	XOR
 } Operation;
-
-/// Final task in the exercise is to check if a byte is larger than
-/// zero and even. This has two solutions, depending if you consider
-/// the byte to be signed or unsigned. This first is for unsigned bytes.
-bool isUnsignedByteLargerThanZeroAndEven(bool array[]);
-/// The second solution where byte is considered to be signed.
-bool isSignedByteLargerThanZeroAndEven(bool array[]);
 
 /// Input and output.
 /// Print truth tables for basic operators having two inputs.
@@ -103,22 +98,6 @@ int main() {
 	printf("Is the byte above larger than 0 and even?: %s\n\n", isSignedByteLargerThanZeroAndEven(nonZeroArray) ? "Yes" : "No");
 }
 
-
-/// This chip checks if an UNSIGNED byte is larger than zero and even integer.
-/// In unsigned bytes, the most significant bit value of 1 does *not* mean number is negative.
-bool isUnsignedByteLargerThanZeroAndEven(bool array[]) {
-	return and(not(isZero(array)), isEven(array));
-}
-
-/// This chip checks if a SIGNED byte is larger than zero and even integer.
-/// In a signed byte, the most significant bit (on the left) is 1 if the number is negative,
-/// and zero if the number is positive. We use NAND to check the most significant bit.
-/// In the demo video showing the solution, I used AND and NOT gates, but NAND can be used
-/// to replace those as you can see in the code below.
-bool isSignedByteLargerThanZeroAndEven(bool array[]) {
-	return and(nand(array[0], array[0]), and(not(isZero(array)), isEven(array)));
-}
-
 // ==================//
 // Output functions. //
 // ==================//
@@ -160,6 +139,8 @@ void printTruthTable(Operation op) {
 		printf("\t1\t0\t%d\n", (*funcPtr)(true, false) ? 1 : 0);
 		printf("\t0\t1\t%d\n", (*funcPtr)(false, true) ? 1 : 0);
 		printf("\t1\t1\t%d\n", (*funcPtr)(true, true) ? 1 : 0);
+	} else {
+		printf("ERROR, operator not supported\n");
 	}
 }
 
