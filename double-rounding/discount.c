@@ -10,8 +10,9 @@ int main() {
    
    printf("full price is: %f\n", fullPrice);
    printf("discountLimit is: %f\n", discountLimit);
-//   if (fullPrice > discountLimit) {
-   if (fullPrice > discountLimit || fabs(fullPrice - discountLimit) <= 0.01) {
+   // Not so good comparison here in use. Try using the one commented out.
+   if (fullPrice > discountLimit) {
+//   if (fullPrice > discountLimit || fabs(fullPrice - discountLimit) <= 0.01) {
       printf("Entitled for discount\n");
    } else {
       printf("Not entitled for discount\n");

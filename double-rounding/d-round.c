@@ -10,11 +10,12 @@ const double nudgeClockwise = 0.01;
 const double nudgeAntiClockwise = -0.05;
 
 int main() {
-   double targetHeading = 23.0;
-   double currentHeading = 275.21;
+   double targetHeading = 275.21;
+   double currentHeading = 23.0;
 
    printf("Starting to adjust current heading %.10lf towards target %.10lf\n", currentHeading, targetHeading);
-   currentHeading = adjustHeading2(currentHeading, targetHeading);
+   // Using the not good adjustHeading, try changing to better adjustHeading2.
+   currentHeading = adjustHeading(targetHeading, currentHeading);
    printf("Current heading is %.10lf towards target %.10lf\n", currentHeading, targetHeading);
 
    return 0;
@@ -37,10 +38,10 @@ double adjustHeading(double target, double current) {
    return current;
 }
 
-const double tolerance = 0.10;
+const double TOLERANCE = 0.10;
 
 double adjustHeading2(double target, double current) {
-   while (fabs(current - target) > tolerance) {
+   while (fabs(current - target) > TOLERANCE) {
       if (current < target) {
          current += nudgeClockwise;
       } else {
