@@ -17,6 +17,9 @@ int main() {
       sumOfAges += age;
       numberOfPersons++;
    }
+   // If giving 0 immediately to first question leaves numberOfPersons
+   // to value zero. Dividing zero here results in undefined behaviour.
+   // So the result could be anything.
    int medianAge = sumOfAges / numberOfPersons;
    printf("Median age is: %d\n", medianAge);
    return 0;
