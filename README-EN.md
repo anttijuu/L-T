@@ -26,6 +26,8 @@ Contents:
   * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
 * `gates-in-c` -- demonstrates how to implement gates programmatically, related to Exercise 3.
+* `bit-settings` -- an example of *binary* AND and OR operations and how to use them in bit manipulation. The example manages eight on/off settings with one byte. More information in the code comments.
+
 
 ## Compiling and executing
 
