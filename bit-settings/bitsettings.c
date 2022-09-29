@@ -15,9 +15,9 @@
  */
 
 // Check if a setting is on or off.
-bool isOn(uint8_t settings, uint8_t setting);
+bool isOn(uint8_t settings, int settingNumber);
 // Change the setting from the settings either to on or off.
-uint8_t change(uint8_t settings, uint8_t setting, bool state);
+uint8_t change(uint8_t settings, int settingNumber, bool state);
 
 // I/O
 int readInt(void);
@@ -73,11 +73,10 @@ int main() {
 		printf("Entering anything else exits the app. > ");
 		setting = readInt();
 		if (setting >= 1 && setting <= MAX_SETTINGS) {
-			uint8_t toChange = lookUpTable[setting - 1];
 			// Get the old setting value...
-			bool oldValue = isOn(eightSettings, toChange);
+			bool oldValue = isOn(eightSettings, setting);
 			// ... and change it to opposite; not oldValue.
-			eightSettings = change(eightSettings, toChange, !oldValue);
+			eightSettings = change(eightSettings, setting, !oldValue);
 			printSettings(eightSettings);
 		} else {
 			looping = false;
@@ -88,17 +87,31 @@ int main() {
 }
 
 // Checks if the given setting is on or off.
-bool isOn(uint8_t settings, uint8_t setting) {
-	return (settings & setting);
+bool isOn(uint8_t settings, int settingNumber) {
+	uint8_t toCheck = lookUpTable[settingNumber - 1];
+	return (settings & toCheck);
 }
 
 // Changes the state of a given setting.
 // This:  (state ? setting : 0x00)
 // checks whether to set the setting to the value in setting,
 // or set it to zero. This depends on the value of the boolean
-// state parameter.
-uint8_t change(uint8_t settings, uint8_t setting, bool state) {
-	return ((settings & ~setting) | (state ? setting : 0x00));
+// state parameter. Otherwise using binary AND (&), binary one's
+// complement operator (~) which 'flips' the bits, and binary or
+// operator (|).
+//
+// Learning exercise: Try out the operation below
+// using samples, e.g. settings has bits like: 0000 0111 and then
+// this function is called with values 3 and false:
+// change(0b0000111, 3, false);
+// So the third setting from the right which is currently 1, is set to 0.
+// Do the operations on the left side of |, with binary bit flipping,
+// binary AND and then the operation on the right side of | is
+// binary ORred with left side. You should get the bits 0000 0011
+// as the result.
+uint8_t change(uint8_t settings, int settingNumber, bool state) {
+	uint8_t toChange = lookUpTable[settingNumber - 1];
+	return ((settings & ~toChange) | (state ? toChange : 0x00));
 }
 
 // Prints out the settings.
