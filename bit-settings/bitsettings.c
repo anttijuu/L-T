@@ -83,6 +83,24 @@ int main() {
 		}
 	} while (looping);
 	
+	// After user input, we check if one or many setting bits are on or off.
+	printf("\nIs any of the settings 6, 7 or 8 on?\n");
+	uint8_t toCheck = SETTING_SIX | SETTING_SEVEN | SETTING_EIGHT;
+	if ((eightSettings | (toCheck)) == toCheck) {
+		printf("> Yes, one or more of these settings are on:\n");
+	} else {
+		printf("> No, none of those were on:\n");
+	}
+	printSettings(eightSettings);
+	printf("\nAre both settings 1 and 2 on?\n");
+	toCheck = SETTING_ONE | SETTING_TWO;
+	if ((eightSettings & (toCheck)) == toCheck) {
+		printf("Yes, both are on:\n");
+	} else {
+		printf("> No, none or only one of those were on.\n");
+	}
+	printSettings(eightSettings);
+
 	return EXIT_SUCCESS;
 }
 
