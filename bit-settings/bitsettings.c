@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <assert.h>
 #include <ctype.h>
+#include <string.h>
 
 /*
  This program demonstrates how to use bits as on / off settings.
@@ -24,6 +25,9 @@ int readInt(void);
 void flushInput(void);
 void printSettings(uint8_t);
 void printBits(size_t const, void const * const);
+
+// Special demo
+void flipTheChars(void);
 
 // Defining the settings values.
 const uint8_t SETTING_EIGHT = 0b10000000; // 128 0x80
@@ -100,7 +104,11 @@ int main() {
 		printf("> No, none or only one of those were on.\n");
 	}
 	printSettings(eightSettings);
-
+	
+	// One more thing...
+	printf("\nDo the bit flipping of CAPS chars to lowercased chars for ASCII chars...\n");
+	flipTheChars();
+	
 	return EXIT_SUCCESS;
 }
 
@@ -172,4 +180,27 @@ void flushInput(void) {
 	while ((c = getchar()) != '\n' && c != EOF);
 }
 
-
+// A demo on how to switch upper case ASCII chars to lowercase
+// using bit flipping. Things to note:
+// - ASCII is 7 bit encoding system.
+// - Flipping the sixth bit from the right to 1 makes an upper case letter lowercase.
+// changes the case from uppercase to lowercase. For example:
+//  1000 0001 is A
+//  0100 0000 flipper byte, flips the 6th bit using binary or operator
+//  1100 0001 is a, note the flipped 6th bit from the right.
+void flipTheChars(void) {
+	// Prepare an array of uppercase letters.
+	char upperCased[27];
+	strcpy(upperCased, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	
+	// Have a flipper byte that is used to flip the 6th bit from the right.
+	const uint8_t flipper = 0b00100000;
+	
+	int index = 0;
+	while (index < strlen(upperCased)) {
+		uint8_t upperCase = upperCased[index];
+		uint8_t lowercase = (upperCase | flipper); // Flip the bits
+		printf("Character %c in lowercase is %c\n", upperCase, lowercase);
+		index++;
+	}
+}

@@ -26,7 +26,7 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
 * `gates-in-c` -- demonstroi porttien (gate) toteutusta ohjelmallisesti, liittyen harjoitukseen 3.
-* `bit-settings` -- esimerkki *binääristen* AND ja OR -operaatioiden käytöstä bittien manipuloimisessa. Esimerkissä hoidetaan kahdeksan on/off -tyyppisen asetuksen hallinta yhdellä tavulla. Koodin kommenteissa lisätietoa aiheesta.
+* `bit-settings` -- esimerkki *binääristen* AND ja OR -operaatioiden käytöstä bittien manipuloimisessa. Esimerkissä hoidetaan kahdeksan on/off -tyyppisen asetuksen hallinta yhdellä tavulla. Yhden bitin kääntämisellä voidaan myös muuntaa iso ASCII -kirjain pieneksi kirjaimeksi. Koodin kommenteissa lisätietoa aiheesta.
 
 ## Kääntäminen ja suorittaminen
 
