@@ -27,6 +27,7 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
 * `gates-in-c` -- demonstroi porttien (gate) toteutusta ohjelmallisesti, liittyen harjoitukseen 3.
 * `bit-settings` -- esimerkki *binääristen* AND ja OR -operaatioiden käytöstä bittien manipuloimisessa. Esimerkissä hoidetaan kahdeksan on/off -tyyppisen asetuksen hallinta yhdellä tavulla. Yhden bitin kääntämisellä voidaan myös muuntaa iso ASCII -kirjain pieneksi kirjaimeksi. Koodin kommenteissa lisätietoa aiheesta.
+* `unicode-char` -- esimerkki siitä miten erikoismerkit kuten skandinaaviset kirjaimet, saamen kielen kirjaimet, sekä venäjän ja japaninkieliset kirjaimet eivät näy oikein ellei ohjelma käytä leveitä merkkejä (wide char) kahdeksanbittisten merkkien käsittelyyn. Vaikka leveitä merkkejä käytettäisiinkin, voi olla ettei tietokoneesi ja sen terminaaliohjelma osaa näyttää Unicode -merkkejä. Windows on tässä aika huono. Lisäksi käytetyn terminaaliohjelman pitää tukea Unicodea, ja fontti jolla kirjaimet esitetään, pitää sisältää näiden kielten merkit jotta ne voitaisiin esittää näytöllä. Tämä ohjelma vaatii kääntämiseen C++:n.
 
 ## Kääntäminen ja suorittaminen
 

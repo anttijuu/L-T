@@ -27,7 +27,7 @@ Contents:
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.
 * `gates-in-c` -- demonstrates how to implement gates programmatically, related to Exercise 3.
 * `bit-settings` -- an example of *binary* AND and OR operations and how to use them in bit manipulation. The example manages eight on/off settings with one byte. Also demonstrates how one can convert a capital ASCII character to lowercase by flipping one bit. More information in the code comments.
-
+* `unicode-char` -- an example about how special characters, like Scandinavian, Sapmi, Russian and Japanese chars do not display correctly, if using narrow 8 bit characters. When using wide chars, they can be printed correctly. Although this also depends on your computer; how well it supports Unicode at terminal window. Usually Windows is not too good at this. Also the terminal window must be configured to use Unicode and the font used in displaying text must contain the necessary glyphs to show these special characters, outside the more usual ASCII, Latin 1 etc. This demo is different from the rest in that it requires C++.
 
 ## Compiling and executing
 
