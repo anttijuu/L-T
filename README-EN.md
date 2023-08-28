@@ -9,7 +9,8 @@ Contents:
 * `asm-helloworld` -- a simple hello world app in assembly on macOS.
 * `double-rounding` -- examples in C of situations where rounding errors of floating point numbers cause problems. Languages include C, Java and Swift.
 * `divbyzero` -- division by zero error:
-  * `divbyzero.c` -- C example, shows how app crashes if number is divided by zero.
+    * `divbyzero.c` -- an example in C, demonstrating division by zero. However, with most compilers, this appears to do *nothing special*, since the result of division by zero in C is "undefined behaviour" -- the program can do *anything* in this situation.
+  * `DivByZero.java`, `DivByZero.swift`  -- examples how higher (than C) level programming languages Java and Swift create an exception or fatal error crashing the app, when attempting to divide by zero.
 * `overflow` -- several examples of integer overflow happening in different languages.
   * `main.c` -- shows how integer overflow happens with C language.
   * `main.swift` -- the same as above but with Swift programming language. 

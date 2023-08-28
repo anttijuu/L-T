@@ -9,8 +9,9 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
 * `asm-helloworld` -- yksinkertainen assembly -kielellä tehty hello world -sovellus macOS:lle.
 * `double-rounding` -- esimerkkejä tilanteista joissa liukulukujen pyöristys tai epätarkkuus aiheuttaa ongelmia. Esimerkkikielinä C, Java ja Swift.
 * `divbyzero` -- nollalla jakamisen virhe:
-  * `divbyzero.c` -- esimerkki C -kielellä, joka näyttää miten ohjelma kaatuu kun luku jaetaan nollalla.
-* `overflow` -- useita esimerkkejä siitä miten kokonaisluvun ylivuioto tapahtuu eri ohjelmintikielillä.
+  * `divbyzero.c` -- esimerkki C -kielellä, joka demonstroi nollalla jakamisen. Tosin useimmilla kääntäjillä tämä ei näytä *miltään* sillä tuloksena C -kielessä nollalla jakamisesta on ns. "undefined behaviour" -- ohjelma voi tällaisessa tilanteessa tehdä *ihan mitä tahansa*.
+  * `DivByZero.java`, `DivByZero.swift` -- esimerkkejä siitä, miten korkeamman tason (kuin C) ohjelmointikielet Java ja Swift ilmoittavat nollalla jakamisesta virheellä.
+* `overflow` -- useita esimerkkejä siitä miten kokonaisluvun ylivuoto tapahtuu eri ohjelmintikielillä.
   * `main.c` -- kokonaisluvun ylivuotoesimerkki C -kielellä.
   * `main.swift` -- kuten yllä, mutta ohjelmointikielenä Swift. 
   * `overflow.c` -- kahdeksanbittisten kokonaislukujen ylivuotoesimerkki C -kielellä.

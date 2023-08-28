@@ -1,0 +1,24 @@
+
+C example:
+
+Lasketaanko keskiarvoja, 0 = ei lasketa: 0
+Median age is: 0
+
+---
+
+Java Example:
+
+Stop average counting (0 stops)?:
+0
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at DivByZero.main(DivByZero.java:24)
+
+---
+
+Swift example:
+
+Give your age please, zero quits >
+0
+Swift/arm64e-apple-macos.swiftinterface:34146: Fatal error: Division by zero
+[1]    39313 trace trap  ./DivByZero > DivByZero.txt
+

@@ -3,7 +3,7 @@
 int main() {
 
    int numberOfPersons = 0;
-   int sumOfAges = 1;
+   int sumOfAges = 0;
 
    int proceed = 1;
 
