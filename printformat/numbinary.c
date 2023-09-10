@@ -1,18 +1,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <limits.h>
+#include <errno.h>
 
 void printUsage(const char * binaryName);
 
-// Prints a given number as a binary representation, assuming 64bit (8x8 bytes) environment.
+// Prints a given integer number as a binary representation, assuming 64bit (8x8 bytes) environment.
 int main(int argc, char * argv[]) {
    
    if (argc != 2) {
       printUsage(argv[0]);
       return EXIT_SUCCESS;
    }
-   long long number = strtoll(argv[1], NULL, 10);
-   if (number == 0 || number == LONG_MIN || number == LONG_MAX) {
+	char * input = argv[1];
+	errno = 0;
+	char * end;
+   long long number = strtoll(argv[1], &end, 10);
+   if (input == end || errno != 0) {
       printf(" ** ERROR: could not convert input to long long integer.\n");
       printUsage(argv[0]);
       return EXIT_FAILURE;
