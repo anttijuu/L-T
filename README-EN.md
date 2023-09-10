@@ -22,7 +22,12 @@ Contents:
 * `shifting` -- examples of bit shifting operations on integers.
   * `shifting.c` -- a simple example of bit shifting.
   * `even-shift.c` -- shows how division and multiplication with even numbers can be done with bit shifting.
+* `memory` -- demos related to memory.
+  * `address.c` -- prints a value of a variable, the address of the variable, the address of a pointer pointing to the variable, etc.
+  * `endian.cpp` -- prints out bytes in memory, where you can see if a computer is little or big endian. Includes printouts from two Macs, another in Intel x86 PC architecture, another from Apple Silicon aarch64 architecture.
+  * `stackoverflow.c` -- demonstrates how stack overflow happens when calling recursive functions with large local variables. By editing the code you can make the stack overflow disappear by using heap memory instead of stack.  
 * `fun` -- fun examples :)
+  * `Planets.swift` -- prints out the symbols of the planets as Unicode characters. Pluto included.
   * `spooky.swift` -- an example on how modern programming languages allow using almost any Unicode symbols in variable and function names, as well as values -- even emojis!
   * `x-or-fun.c` -- an example in C on how xor operation can be used to solve a problem related to arrays; how to find one missing number in a series of numbers in an array.
   * `x-or-fun.swift` -- an example in Swift on how xor operation can be used to solve a problem related array.

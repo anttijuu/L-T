@@ -1,0 +1,20 @@
+
+                 ###                  
+               ####                   Hostname: Antti-Mac-mini
+               ###                    Distro: OS X 13.5.2
+       #######    #######             Kernel: Darwin
+     ######################           Uptime: 1 day
+    #####################             Shell: /bin/zsh
+    ####################              Terminal: xterm-256color
+    ####################              CPU: Apple M1
+    #####################             Memory: 16 GB
+     ######################           Disk: 26%
+      ####################            
+        ################
+         ####     #####
+
+> ./endian
+byte[0] = 0xd
+byte[1] = 0xc
+byte[2] = 0xb
+byte[3] = 0xa

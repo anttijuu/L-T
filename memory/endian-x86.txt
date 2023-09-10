@@ -1,0 +1,20 @@
+
+                 ###                  
+               ####                   Hostname: OY1902105
+               ###                    Distro: OS X 14.0
+       #######    #######             Kernel: Darwin
+     ######################           Uptime: 10 days
+    #####################             Shell: /bin/zsh
+    ####################              Terminal: xterm-256color iTerm.app
+    ####################              CPU: Intel Core i5-8259U CPU @ 2.30GHz
+    #####################             Memory: 16 GB
+     ######################           Disk: 5%
+      ####################            Battery: 95,7698%
+        ################              
+         ####     #####               
+
+> ./endian
+byte[0] = 0xd
+byte[1] = 0xc
+byte[2] = 0xb
+byte[3] = 0xa

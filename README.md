@@ -22,7 +22,12 @@ Näitä käytetään peruskurssilla tietokoneista. Kurssilla **koodiesimerkkien 
 * `shifting` -- esimerkkejä kokonaislukujen bittien liikuttelusta (bit shifting).
   * `shifting.c` -- yksinkertainen esimerkki bit shiftingistä.
   * `even-shift.c` -- esimerkki näyttää miten jakolaskuja ja kertolaskuja parillisilla numeroilla voidaan toteuttaa bittien liikuttelulla.
+* `memory` -- muistiin liittyviä demoja.
+  * `address.c` -- tulostetaan muuttujan arvo, muttujan osoite, muuttujaan osoittavan osoittimen osoite, jne.
+  * `endian.cpp` -- tulostaa muistissa olevan muuttujan tavut, josta selviää onko kone little vai big endian. Mukana kaksi tulostusta macOS laitteilta sekä x86 että aarch64 prosessoriarkkitehtuureista.
+  * `stackoverflow.c` -- havainnollistaa rekursion kautta tapahtuvaa pinomuistin ylivuotoa (stack overflow). Koodia muokkaamalla pinon ylivuodon saa korjattua kun käytetään muuttujaa varten kekomuistia (heap).
 * `fun` -- hauskoja demoja :)
+  * `Planets.swift` -- tulostaa planeettojen symbolit Unicode -merkkeinä. Pluto mukana.
   * `spooky.swift` -- esimerkki siitä miten moderneilla ohjelmointikielillä voidaan käyttää lähes mitä tahansa Unicode -symboleita muuttujien ja funktioiden nimissä ja muuttujien arvoissa -- jopa emojeita!
   * `x-or-fun.c` -- C -kielinen esimerkki siitä miten xor -operaatioita voidaan hyödyntää taulukoihin liittyvän ongelman ratkaisemiseen -- miten löydetään taulukosta puuttuva numero.
   * `x-or-fun.swift` -- sama kuin yllä, mutta Swift -ohjelmointikielellä.
