@@ -20,8 +20,8 @@ int main() {
    // If giving 0 immediately to first question leaves numberOfPersons
    // to value zero. Dividing zero here results in undefined behaviour.
    // So the result could be anything.
-   int medianAge = sumOfAges / numberOfPersons;
-   printf("Median age is: %d\n", medianAge);
+	int medianAge = sumOfAges / numberOfPersons;
+	printf("Median age is: %d\n", medianAge);
    return 0;
    // NB: compilers are developed and made less tolerant to errors like this.
    // Below this same code was built and executed on macOS Sonoma beta with Xcode 15 beta.
