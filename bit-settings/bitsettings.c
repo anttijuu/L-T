@@ -1,3 +1,10 @@
+//
+//  main.c
+//  LTDemo
+//
+//  Created by Antti Juustila on 18.9.2023.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -56,7 +63,7 @@ const uint8_t lookUpTable[] = {
 	SETTING_EIGHT
 };
 
-int main() {
+int main(int argc, char * argv[]) {
 	
 	// To show the difference in memory usage...
 	bool arrayOfEightBools[8];
@@ -111,7 +118,8 @@ int main() {
 // Checks if the given setting is on or off.
 bool isOn(uint8_t settings, int settingNumber) {
 	uint8_t toCheck = lookUpTable[settingNumber - 1];
-	return (settings & toCheck);
+	bool result = settings & toCheck;
+	return result;
 }
 
 // Changes the state of a given setting.
@@ -132,13 +140,43 @@ bool isOn(uint8_t settings, int settingNumber) {
 // binary ORred with left side. You should get the bits 0000 0011
 // as the result.
 uint8_t change(uint8_t settings, int settingNumber, bool state) {
+	
+	// Print current settings before change
+	printf("\n... current settings.....: ");
+	printBits(sizeof(settings), &settings);
+	
+	// Print which setting to change
 	uint8_t toChange = lookUpTable[settingNumber - 1];
-	return ((settings & ~toChange) | (state ? toChange : 0x00));
+	printf("\n... setting toChange.....: ");
+	printBits(sizeof(toChange), &toChange);
+	
+	// Print the state change we want
+	uint8_t result1 = state ? toChange : 0x00;
+	printf("... change to (result1)..: ");
+	printBits(sizeof(result1), &result1);
+	
+	// Flip the bits from 0 to 1 and 1 to zero
+	toChange = ~toChange;
+	printf("... toChange = ~toChange.: ");
+	printBits(sizeof(toChange), &toChange);
+	
+	// Do binary AND between current settings and the one to change, flipped
+	uint8_t result2 = settings & toChange;
+	printf("... settings & toChange..: ");
+	printBits(sizeof(result2), &result2);
+	
+	// Do binary OR between the result1 and result2, being the new settings
+	result2 = result2 | result1;
+	printf("... result2 | result1....: ");
+	printBits(sizeof(result2), &result2);
+	printf("... New settings:--------------^\n\n");
+	return result2;
+	// In one go: return ((settings & ~toChange) | (state ? toChange : 0x00));
 }
 
 // Prints out the settings.
 void printSettings(uint8_t settings) {
-	printf("==> Settings are:\n");
+	printf("==> Settings are now:\n");
 	printf("Setting number: 8765 4321\n");
 	printf("On or Off ----->");
 	printBits(sizeof(settings), &settings);
@@ -148,7 +186,7 @@ void printSettings(uint8_t settings) {
 void printBits(size_t const size, void const * const ptr) {
 	uint8_t *b = (uint8_t*) ptr;
 	uint8_t byte;
-	int i, j;
+	long i, j;
 	
 	for (i = size - 1; i >= 0; i--) {
 		for (j = 7; j >= 0; j--) {
