@@ -1,0 +1,11 @@
+*
+!.gitignore
+!*.h
+!*.c
+!*.cpp
+!*.swift
+!*.md
+!*.java
+*.s
+!makefile
+!*.txt
