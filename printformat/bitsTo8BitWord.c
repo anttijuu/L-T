@@ -14,12 +14,16 @@ const int SIGNED = 0;
 const int UNSIGNED = 1;
 
 int main(int argc, char * argv[]) {
-	int length = strlen(argv[1]);
 	
-	if ((argc != 2 && argc != 3) || length != 8) {
+	if ((argc != 2 && argc != 3)) {
 		printUsage(argv[0]);
 		return EXIT_SUCCESS;
 	}
+    int length = strlen(argv[1]);
+    if (length != 8) {
+        printUsage(argv[0]);
+        return EXIT_SUCCESS;
+    }
 	bool signedInput = false;
 	char * input = "unsigned";
 	if (argc == 3) {
