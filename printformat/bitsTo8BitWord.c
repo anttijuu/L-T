@@ -61,9 +61,6 @@ int unsignedToInt(const char * bits) {
 	int multiplier = 128;
 	int value = 0;
 	for (int index = 0; index < 8; index++) {
-		if (bits[index] == '1') {
-			value += multiplier;
-		}
 		printf("  bit: %c multiplier: %d value: %d\n", bits[index], multiplier, value);
 		multiplier = multiplier >> 1;
 	}
