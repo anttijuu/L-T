@@ -18,13 +18,11 @@ void printBits(unsigned char * bytes);
 int main(int argc, char * argv[]) {
     if (argc != 2 && argc != 3) {
 		printUsage(argv[0]);
-        printf("out1: argc: %d\n", argc);
 		return EXIT_SUCCESS;
 	}
     int length = strlen(argv[1]);
     if (length != 6) {
         printUsage(argv[0]);
-        printf("out2");
         return EXIT_SUCCESS;
     }
 
@@ -151,7 +149,7 @@ void printUsage(const char * binaryName) {
 	printf("\nUsage: %s <16 bit hex value> [signed|unsigned] [\n", binaryName);
 	printf("  Show the 16 bit hexadecimal number as bits and int value.\n");
 	printf("  Example run: %s 0xF0FF signed\n", binaryName);
-    printf("  Will print: \n    0xF0FF as bits: 1111 0000 1111 1111 as signed int: ???????.\n");
+    printf("  Will print: \n    0xF0FF as bits: 1111 0000 1111 1111 as signed int: -3841.\n");
     printf("  Example run: %s 0xF0FF unsigned\n", binaryName);
     printf("  Will print: \n    0xF0FF as bits: 1111 0000 1111 1111 as unsigned int: 61 695.\n\n");
 }
