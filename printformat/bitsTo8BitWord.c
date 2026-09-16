@@ -27,8 +27,10 @@ int main(int argc, char * argv[]) {
 	bool signedInput = false;
 	char * input = "unsigned";
 	if (argc == 3) {
-		signedInput = strcmp(argv[2], "signed") == 0;
-		input = "signed";
+		signedInput = (strcmp(argv[2], "signed") == 0);
+        if (signedInput) {
+            input = "signed";
+        }
 	}
 	int value = 0;
 	if (signedInput) {
